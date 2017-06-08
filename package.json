@@ -1,17 +1,19 @@
 {
-  "name": "tracer",
-  "description": "A powerful and customizable logging library for node.js. support color console with timestamp, line number, method name, file name and call stack. you can set transport to file, stream, database(ex: mongodb and clouddb, simpledb). keywords: log, logger, trace ",
-  "homepage": "http://github.com/baryon/tracer",
+  "name": "tracer-debug",
+  "description": "A powerful and customizable logging library integrated with debug for node.js. support color console with timestamp, line number, method name, file name and call stack. you can set transport to file, stream, database(ex: mongodb and clouddb, simpledb). keywords: log, logger, trace ",
+  "homepage": "http://github.com/yknx4/tracer",
   "repository": {
     "type": "git",
-    "url": "git://github.com/baryon/tracer.git"
+    "url": "git://github.com/yknx4/tracer.git"
   },
   "version": "0.8.9",
-  "author": "LI Long <lilong@gmail.com>",
+  "author": "Ale Figueroa <me@ale.world>",
   "license": "MIT",
   "dependencies": {
-    "dateformat": "2.0.0",
     "colors": "1.1.2",
+    "dateformat": "2.0.0",
+    "debug": "^2.6.8",
+    "lodash": "^4.17.4",
     "tinytim": "0.1.1"
   },
   "devDependencies": {

@@ -9,7 +9,7 @@ function stress_log(log) {
 }
 
 function test_tracer() {
-    var log = require('tracer-debug').console({
+    var log = require('tracerdebug').console({
     	transport : function(data) {}
     });
     
@@ -20,7 +20,7 @@ function test_tracer() {
 
 
 function test_tracer_skip() {
-    var log = require('tracer-debug').console({
+    var log = require('tracerdebug').console({
     	level:"warn",
     	transport : function(data) {}
     });
@@ -33,7 +33,7 @@ function test_tracer_skip() {
 
 function test_tracer_nostack() {
 	//if the format don't include "method|path|line|pos|file", the speed will be up
-    var log = require('tracer-debug').console({
+    var log = require('tracerdebug').console({
     	format: "{{timestamp}} <{{title}}> {{message}}",
     	transport : function(data) {}
     });

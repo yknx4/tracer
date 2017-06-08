@@ -21,7 +21,7 @@ var obj =  {Request:
 				]
 		 } ] };
 
-var logger = require('tracer-debug').console();
+var logger = require('tracerdebug').console();
 logger.log(obj);
 logger.log("%s", obj);
 logger.log("%t", obj);
@@ -29,7 +29,7 @@ logger.log("%t", obj);
 // 2013-09-30T04:30:44.912Z <log> depth.js:23 (Object.<anonymous>) { Request: [ { IsValid: [Object], ItemSearchRequest: [Object] } ] }
 
 
-var logger = require('tracer-debug')[config.strategy](config.setting);
+var logger = require('tracerdebug')[config.strategy](config.setting);
 logger.log(obj);
 // 
 // 2013-09-30T04:30:44.927Z <log> depth.js:26 (Object.<anonymous>) { Request:

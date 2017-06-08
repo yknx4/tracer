@@ -1,6 +1,6 @@
 "use strict";
 var colors = require('colors'); //~1.0.3
-var tracer = require('tracer-debug');
+var tracer = require('tracerdebug');
 
 var log = tracer.colorConsole({
   level: 'trace',

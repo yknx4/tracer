@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 "use strict";
-var express = require('express'), routes = require('./routes'), conf = require('./config'), logger = require('tracer-debug')[conf.log.strategy]
+var express = require('express'), routes = require('./routes'), conf = require('./config'), logger = require('tracerdebug')[conf.log.strategy]
 		(conf.log.setting);
 var app = module.exports = express.createServer();
 
@@ -41,7 +41,7 @@ app.configure('development', function() {
 
 app.configure('production',	function() {
 	// (ex3)error log in production
-	var logger = require('tracer-debug')[conf.log_prd.strategy]
+	var logger = require('tracerdebug')[conf.log_prd.strategy]
 			(conf.log_prd.setting);
 	app.error(function(err, req, res, next) {
 		logger.error(err);

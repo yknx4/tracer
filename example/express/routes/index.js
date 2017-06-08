@@ -2,7 +2,7 @@
  * GET home page.
  */
 "use strict";
-var conf = require('../config'), logger = require('tracer-debug')[conf.log.strategy](conf.log.setting);
+var conf = require('../config'), logger = require('tracerdebug')[conf.log.strategy](conf.log.setting);
 
 exports.index = function(req, res, next) {
 	logger.debug('index');

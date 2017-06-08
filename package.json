@@ -1,5 +1,5 @@
 {
-  "name": "tracer-debug",
+  "name": "tracerdebug",
   "description": "A powerful and customizable logging library integrated with debug for node.js. support color console with timestamp, line number, method name, file name and call stack. you can set transport to file, stream, database(ex: mongodb and clouddb, simpledb). keywords: log, logger, trace ",
   "homepage": "http://github.com/yknx4/tracer",
   "repository": {

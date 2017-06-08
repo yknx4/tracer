@@ -1,7 +1,7 @@
 "use strict";
 var fs = require('fs');
 
-var logger = require('tracer-debug').console({
+var logger = require('tracerdebug').console({
 	transport : function(data) {
 		console.log(data.output);
 		fs.open('./file.log', 'a', parseInt('0644', 8), function(e, id) {

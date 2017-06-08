@@ -1,10 +1,10 @@
 "use strict";
-var tracer = require('tracer-debug')
+var tracer = require('tracerdebug')
 
 var conf = 	{
 	dateformat : "isoUtcDateTime"
 };
-var logger = require('tracer-debug').console(conf);
+var logger = require('tracerdebug').console(conf);
 
 logger.log('hello');
 logger.trace('hello', 'world');

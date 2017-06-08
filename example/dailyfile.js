@@ -1,5 +1,5 @@
 "use strict";
-var logger = require('tracer-debug').dailyfile({root:'.', format:" {{timestamp}} [{{title}}] ({{file}}:{{line}}) {{message}} "});
+var logger = require('tracerdebug').dailyfile({root:'.', format:" {{timestamp}} [{{title}}] ({{file}}:{{line}}) {{message}} "});
 
 logger.log('hello');
 logger.trace('hello', 'world');

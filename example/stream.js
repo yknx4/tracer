@@ -1,7 +1,7 @@
 "use strict";
 var fs = require('fs');
 
-var logger = require('tracer-debug').console({
+var logger = require('tracerdebug').console({
 	transport : function(data) {
 			console.log(data.output);
 			var logStream = fs.createWriteStream("./stream.log", {

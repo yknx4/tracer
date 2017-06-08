@@ -1,7 +1,7 @@
 "use strict";
 var colors = require('colors');
 
-var logger = require('tracer').colorConsole({
+var logger = require('tracer-debug').colorConsole({
 	level : 'log1',
 	methods : [ 'log0', 'log1', 'log2', 'log3', 'log4', 'log5' ],
 	filters : [colors.underline, colors.yellow],

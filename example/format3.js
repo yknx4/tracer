@@ -1,5 +1,5 @@
 "use strict";
-var tracer = require('tracer')
+var tracer = require('tracer-debug')
 
 function test(id){
 	var logger = tracer.colorConsole(

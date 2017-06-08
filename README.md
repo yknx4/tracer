@@ -11,6 +11,7 @@ A powerful and customizable logging library for node.js.
 ## Features
 -----
 
+* integrated with [debug](https://github.com/visionmedia/debug)
 * print log messages with timestamp, file name, method name, line number, path or call stack
 * be customized output format with micro-template and timestamp format
 * support user-defined logging levels
@@ -50,7 +51,25 @@ var logger = require('tracer').colorConsole({level:'warn'});
 Simple Example
 --------------
 
+### Simple Console with Debug Integration
+```javascript
+var logger = require('tracer').console({ prefix: __dirname }); // Prefix would be removed from the file path when generating debug namespace
+															   // /home/my_project/**/my_file.js => home:my_project:**:my_file.js (without prefix)
+logger.log('hello');										   // /home/my_project/**/my_file.js => **:/my_file.js (with __dirname as prefix)
+logger.trace('hello', 'world');
+logger.debug('hello %s',  'world', 123);
+logger.info('hello %s %d',  'world', 123, {foo:'bar'});
+logger.warn('hello %s %d %j', 'world', 123, {foo:'bar'});
+logger.error('hello %s %d %j', 'world', 123, {foo:'bar'}, [1, 2, 3, 4], Object);
 
+$ DEBUG=* node example/console.js
+home:projects:tracer-debug:example/console.js line 3:8 hello +0ms
+home:projects:tracer-debug:example/console.js line 4:8 hello world +3ms
+home:projects:tracer-debug:example/console.js line 5:8 hello world 123 +1ms
+home:projects:tracer-debug:example/console.js line 6:8 hello world 123 { foo: 'bar' } +2ms
+home:projects:tracer-debug:example/console.js line 7:8 hello world 123 {"foo":"bar"} +1ms
+home:projects:tracer-debug:example/console.js line 8:8 hello world 123 {"foo":"bar"} [ 1, 2, 3, 4 ] function Object() { [native code] } +0ms
+```
 
 ### Simple Console
 
@@ -482,6 +501,9 @@ Read examples please. [setLevel.js](https://github.com/baryon/tracer/blob/master
 
 
 ## History
+
+### 0.8.9
+* integrated with debug
 
 ### 0.8.4-0.8.7
 * added some codes, details: #56 thanks @AmitThakkar

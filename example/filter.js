@@ -5,7 +5,7 @@ function f1(str) {
 	return str.toUpperCase();
 }
 
-var logger = require('tracer').colorConsole({
+var logger = require('tracer-debug').colorConsole({
 	filters : [
 	           f1, colors.underline, colors.blue, //default filter
 	           //the last item can be custom filter. here is "warn" and "error" filter

@@ -13,7 +13,7 @@ var conf = {
 	};
 
 console.log(clc.black.bgWhite('hello'), clc.black.bgWhite('world'));
-var logger = require('tracer').console(conf);
+var logger = require('tracer-debug').console(conf);
 logger.log('hello');
 logger.trace('hello', 'world');
 logger.debug('hello %s',  'world', 123);

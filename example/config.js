@@ -14,7 +14,7 @@ var conf = {
 		}
 };
 
-var tracer = require('tracer')
+var tracer = require('tracer-debug')
 
 function test(c){
 	var logger = tracer[c.strategy](c.setting);

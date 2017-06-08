@@ -1,5 +1,5 @@
 "use strict";
-var logger = require('tracer')
+var logger = require('tracer-debug')
 		.console(
 				{
 					format : "{{timestamp}} <{{title}}> {{message}} (in {{file}}:{{line}})",

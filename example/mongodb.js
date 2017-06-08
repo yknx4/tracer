@@ -14,7 +14,7 @@ var log_conf = {
 		}
 }
 
-var logger = require('tracer').console(log_conf);
+var logger = require('tracer-debug').console(log_conf);
 
 logger.log('hello');
 logger.trace('hello', 'world');

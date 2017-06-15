@@ -1,13 +1,13 @@
-# tracer for node.js 
+# tracerdebug for node.js 
 
-[![NPM version](http://img.shields.io/npm/v/tracer.svg)](https://www.npmjs.org/package/tracer)
-[![Dependency Status](https://david-dm.org/baryon/tracer.svg)](https://david-dm.org/baryon/tracer)
-[![devDependency Status](https://david-dm.org/baryon/tracer/dev-status.svg)](https://david-dm.org/baryon/tracer#info=devDependencies)
-[![Build Status](https://secure.travis-ci.org/baryon/tracer.png)](http://travis-ci.org/baryon/tracer)
+[![NPM version](http://img.shields.io/npm/v/tracerdebug.svg)](https://www.npmjs.org/package/tracerdebug)
+[![Dependency Status](https://david-dm.org/yknx4/tracerdebug.svg)](https://david-dm.org/yknx4/tracerdebug)
+[![devDependency Status](https://david-dm.org/yknx4/tracerdebug/dev-status.svg)](https://david-dm.org/yknx4/tracerdebug#info=devDependencies)
+[![Build Status](https://secure.travis-ci.org/yknx4/tracerdebug.png)](http://travis-ci.org/yknx4/tracerdebug)
 
 A powerful and customizable logging library for node.js.
 
-===========
+-----
 ## Features
 -----
 
@@ -21,7 +21,7 @@ A powerful and customizable logging library for node.js.
 ## Install
 -----
 ```javascript
-npm install tracer --save
+npm install tracerdebug --save
 ```
 
 Usage
@@ -31,20 +31,20 @@ Add to your code:
 Simple Console
 
 ```javascript
-var logger = require('tracer').console();
+var logger = require('tracerdebug').console();
 ```
 
 
 Color Console
 
 ```javascript
-var logger = require('tracer').colorConsole();
+var logger = require('tracerdebug').colorConsole();
 ```
 
 Set Output Level
 
 ```javascript
-var logger = require('tracer').colorConsole({level:'warn'});
+var logger = require('tracerdebug').colorConsole({level:'warn'});
 ```
 
 
@@ -53,7 +53,7 @@ Simple Example
 
 ### Simple Console with Debug Integration
 ```javascript
-var logger = require('tracer').console({ prefix: __dirname }); // Prefix would be removed from the file path when generating debug namespace
+var logger = require('tracerdebug').console({ prefix: __dirname }); // Prefix would be removed from the file path when generating debug namespace
 															   // /home/my_project/**/my_file.js => home:my_project:**:my_file.js (without prefix)
 logger.log('hello');										   // /home/my_project/**/my_file.js => **:/my_file.js (with __dirname as prefix)
 logger.trace('hello', 'world');
@@ -63,18 +63,18 @@ logger.warn('hello %s %d %j', 'world', 123, {foo:'bar'});
 logger.error('hello %s %d %j', 'world', 123, {foo:'bar'}, [1, 2, 3, 4], Object);
 
 $ DEBUG=* node example/console.js
-home:projects:tracer-debug:example/console.js line 3:8 hello +0ms
-home:projects:tracer-debug:example/console.js line 4:8 hello world +3ms
-home:projects:tracer-debug:example/console.js line 5:8 hello world 123 +1ms
-home:projects:tracer-debug:example/console.js line 6:8 hello world 123 { foo: 'bar' } +2ms
-home:projects:tracer-debug:example/console.js line 7:8 hello world 123 {"foo":"bar"} +1ms
-home:projects:tracer-debug:example/console.js line 8:8 hello world 123 {"foo":"bar"} [ 1, 2, 3, 4 ] function Object() { [native code] } +0ms
+home:projects:tracerdebug:example/console.js line 3:8 hello +0ms
+home:projects:tracerdebug:example/console.js line 4:8 hello world +3ms
+home:projects:tracerdebug:example/console.js line 5:8 hello world 123 +1ms
+home:projects:tracerdebug:example/console.js line 6:8 hello world 123 { foo: 'bar' } +2ms
+home:projects:tracerdebug:example/console.js line 7:8 hello world 123 {"foo":"bar"} +1ms
+home:projects:tracerdebug:example/console.js line 8:8 hello world 123 {"foo":"bar"} [ 1, 2, 3, 4 ] function Object() { [native code] } +0ms
 ```
 
 ### Simple Console
 
 ```javascript
-var logger = require('tracer').console();
+var logger = require('tracerdebug').console();
 
 logger.log('hello');
 logger.trace('hello', 'world');
@@ -94,7 +94,7 @@ $ node example/console.js
 
 ### Color Console
 ```javascript
-var logger = require('tracer').colorConsole();
+var logger = require('tracerdebug').colorConsole();
 
 logger.log('hello');
 logger.trace('hello', 'world');
@@ -106,7 +106,7 @@ logger.error('hello %s %d %j', 'world', 123, {foo:'bar'}, [1, 2, 3, 4], Object);
 
 ### Daily Log
 ```javascript
-var logger = require('tracer').dailyfile({root:'.', maxLogFiles: 10, allLogsFileName: 'myAppName'});
+var logger = require('tracerdebug').dailyfile({root:'.', maxLogFiles: 10, allLogsFileName: 'myAppName'});
 
 logger.log('hello');
 logger.trace('hello', 'world');
@@ -124,7 +124,7 @@ Advanced Example
 some helper package is need, so install -dev for running examples
 
 ```javascript
-npm install -dev tracer
+npm install -dev tracerdebug
 ```
 
 
@@ -136,17 +136,17 @@ the level option support index (number) or method name.
 
 
 ```javascript
-var logger = require('tracer').console({level:'warn'});
+var logger = require('tracerdebug').console({level:'warn'});
 ```
 equal
 
 ```javascript
-var logger = require('tracer').console({level:4});
+var logger = require('tracerdebug').console({level:4});
 ```
 
 
 ```javascript
-var logger = require('tracer').console({level:'warn'});
+var logger = require('tracerdebug').console({level:'warn'});
 logger.log('hello');
 logger.trace('hello', 'world');
 logger.debug('hello %s',  'world', 123);
@@ -178,13 +178,13 @@ format tag:
 *  method: method name of caller
 *  stack: call stack message
 
-we use tinytim micro-template system to output log.  see details [tinytim](https://github.com/baryon/node-tinytim).
+we use tinytim micro-template system to output log.  see details [tinytim](https://github.com/yknx4/node-tinytim).
 and, we use [Date Format](http://blog.stevenlevithan.com/archives/date-time-format) to format datetime.
 
 
 
 ```javascript
-var logger = require('tracer').console(
+var logger = require('tracerdebug').console(
 				{
 					format : "{{timestamp}} <{{title}}> {{message}} (in {{file}}:{{line}})",
 					dateformat : "HH:MM:ss.L"
@@ -196,7 +196,7 @@ var logger = require('tracer').console(
 Or, you can set special format for output method
 
 ```javascript
-var logger = require('tracer')
+var logger = require('tracerdebug')
 		.colorConsole(
 				{
 					format : [
@@ -221,7 +221,7 @@ the preprocess method is a choice for changing tag.
 ```javascript
 var colors = require('colors');
 
-var logger = require('tracer').colorConsole({
+var logger = require('tracerdebug').colorConsole({
 	level : 'log1',
 	methods : [ 'log0', 'log1', 'log2', 'log3', 'log4', 'log5' ],
 	filters : [colors.underline, colors.yellow],
@@ -250,7 +250,7 @@ About [Colors.js](https://github.com/Marak/colors.js)
 
 ```javascript
 var colors = require('colors');
-var logger = require('tracer').colorConsole({
+var logger = require('tracerdebug').colorConsole({
 	filters : [
 	           f1, colors.underline, colors.blue, //default filter
 	           //the last item can be custom filter. here is "warn" and "error" filter
@@ -263,7 +263,7 @@ var logger = require('tracer').colorConsole({
 
 ```
 
-the filter support key-function pair, example: [color_console.js](https://github.com/baryon/tracer/blob/master/lib/color_console.js)
+the filter support key-function pair, example: [color_console.js](https://github.com/yknx4/tracerdebug/blob/master/lib/color_console.js)
 
 ```javascript
 {
@@ -278,13 +278,13 @@ the filter support key-function pair, example: [color_console.js](https://github
 }
 ```
 
-and the filters is an array, the last item can be custom filter. see example:[filter.js](https://github.com/baryon/tracer/blob/master/example/filter.js)
+and the filters is an array, the last item can be custom filter. see example:[filter.js](https://github.com/yknx4/tracerdebug/blob/master/example/filter.js)
 
 ### Log File Transport
 ```javascript
 var fs = require('fs');
 
-var logger = require('tracer').console({
+var logger = require('tracerdebug').console({
 	transport : function(data) {
 		console.log(data.output);
 		fs.appendFile('./file.log', data.output + '\n', (err) => {
@@ -306,7 +306,7 @@ logger.error('hello %s %d %j', 'world', 123, {foo : 'bar'}, [ 1, 2, 3, 4 ], Obje
 ```javascript
 var fs = require('fs');
 
-var logger = require('tracer').console({
+var logger = require('tracerdebug').console({
 		transport : function(data) {
 			console.log(data.output);
 			var stream = fs.createWriteStream("./stream.log", {
@@ -343,7 +343,7 @@ var log_conf = {
 		}
 }
 
-var logger = require('tracer').console(log_conf);
+var logger = require('tracerdebug').console(log_conf);
 
 logger.log('hello');
 logger.trace('hello', 'world');
@@ -359,7 +359,7 @@ console.log('\n\n\npress ctrl-c to exit');
 ### Defining Multiple Transport
 ```JavaScript
 var fs = require('fs');
-var logger = require('tracer').console({
+var logger = require('tracerdebug').console({
 	transport: [
 		function (data) {
 			fs.appendFile('./file.log', data.output + '\n', (err) => {
@@ -382,7 +382,7 @@ logger.error('hello %s %d %j', 'world', 123, {foo: 'bar'}, [1, 2, 3, 4], Object)
 
 ### Define your logging helper
 
-the work is like [color_console.js](https://github.com/baryon/tracer/blob/master/lib/color_console.js)
+the work is like [color_console.js](https://github.com/yknx4/tracerdebug/blob/master/lib/color_console.js)
 
 ```javascript
 var colors = require('colors');
@@ -413,7 +413,7 @@ var obj =  {Request:
         ]
      } ] };
 
-var logger = require('tracer').console({
+var logger = require('tracerdebug').console({
 		inspectOpt: {
 			showHidden : true, //the object's non-enumerable properties will be shown too
 			depth : null //tells inspect how many times to recurse while formatting the object. This is useful for inspecting large complicated objects. Defaults to 2. To make it recurse indefinitely pass null.
@@ -440,10 +440,10 @@ It is userful for development package.
 
 ```javascript
 
-var logger = require('tracer').console({
+var logger = require('tracerdebug').console({
 		stackIndex : 0 // default 0
 	});
-var logger2 = require('tracer').console({
+var logger2 = require('tracerdebug').console({
 		stackIndex : 1
 	});
 var logMgr = function(type, msg) {
@@ -464,13 +464,13 @@ logMgr2('log', 'hello'); // the line info is right
 
 
 setLevel and close methods to dynamically change the log level.
-these are global settings, affect all output that are created via tracer
+these are global settings, affect all output that are created via tracerdebug
 
 ```javascript
-var tracer = require('tracer');
-tracer.setLevel(2); //or tracer.setLevel('debug');
+var tracerdebug = require('tracerdebug');
+tracerdebug.setLevel(2); //or tracerdebug.setLevel('debug');
 //... ...
-tracer.close();
+tracerdebug.close();
 
 ```
 
@@ -478,15 +478,15 @@ notice:
 if you set level in initialize, you can't change more lower level than the initial level.
 
 ```javascript
-var tracer = require('tracer');
-var logger = tracer.console({level:'warn'});
+var tracerdebug = require('tracerdebug');
+var logger = tracerdebug.console({level:'warn'});
 
 logger.log('hello'); //nothing output
 
-tracer.setLevel(0); //dont work.
+tracerdebug.setLevel(0); //dont work.
 logger.log('hello'); //nothing output
 
-tracer.setLevel('error'); //it works.
+tracerdebug.setLevel('error'); //it works.
 logger.warn('hello'); //nothing output
 
 logger.error('hello'); //'hello'
@@ -496,7 +496,7 @@ logger.error('hello'); //'hello'
 
 
 
-Read examples please. [setLevel.js](https://github.com/baryon/tracer/blob/master/example/setLevel.js)
+Read examples please. [setLevel.js](https://github.com/yknx4/tracerdebug/blob/master/example/setLevel.js)
 
 
 
@@ -512,7 +512,7 @@ Read examples please. [setLevel.js](https://github.com/baryon/tracer/blob/master
 * fixed: Got extra data in the log file. #45 thanks @JohnSmithDr 
 * merged: Add Strict mode and EsLint from @HakmiSofian 
 * merged: Change the log to file example to using `fs.appendFile()` instead.  from @twang2218  
-* merged: Enable use of tracer in strict mode from @madarche  
+* merged: Enable use of tracerdebug in strict mode from @madarche  
 * merged: Added getter for log level from @ColRad 
 * tested on node.js 4/5  
 
@@ -590,7 +590,7 @@ Read examples please. [setLevel.js](https://github.com/baryon/tracer/blob/master
 
 ### 0.3.4
 
-* use [tinytim package](https://github.com/baryon/node-tinytim)
+* use [tinytim package](https://github.com/yknx4/node-tinytim)
 
 ### 0.3.3
 
